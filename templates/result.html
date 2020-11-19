@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>類似読影所見提示システム</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/prism_entity.css">
+    <style media="screen">
+    p.doc {
+      background-color: whitesmoke;
+    }
+    </style>
+  </head>
+<body>
+<h1>類似読影所見提示システム</h1>
+<h2>解析結果</h2>
+<p class="doc">{{ radiorep_ner }}</p>
+<h2>類似所見</h2>
+<form action="/result" method="post">
+  <p>類似度計算で考慮するタグ</p>
+{% if disease %}
+  <input type="checkbox" id="disease" name="disease" checked>
+{% else %}
+  <input type="checkbox" id="disease" name="disease">
+{% endif %}
+  <label for="disease">disease</label>
+
+{% if certainty %}
+  <input type="checkbox" id="certainty" name="certainty" checked>
+{% else %}
+  <input type="checkbox" id="certainty" name="certainty">
+{% endif %}
+  <label for="certainty">certainty</label>
+
+{% if anatomical %}
+  <input type="checkbox" id="anatomical" name="anatomical" checked>
+{% else %}
+  <input type="checkbox" id="anatomical" name="anatomical">
+{% endif %}
+  <label for="anatomical">anatomical</label>
+
+{% if feature %}
+  <input type="checkbox" id="feature" name="feature" checked>
+{% else %}
+  <input type="checkbox" id="feature" name="feature">
+{% endif %}
+  <label for="feature">feature</label>
+
+{% if change %}
+  <input type="checkbox" id="change" name="change" checked>
+{% else %}
+  <input type="checkbox" id="change" name="change">
+{% endif %}
+  <label for="change">change</label>
+
+{% if t_test %}
+  <input type="checkbox" id="t_test" name="t_test" checked>
+{% else %}
+  <input type="checkbox" id="t_test" name="t_test">
+{% endif %}
+  <label for="t_test">t_test</label>
+
+{% if t_key %}
+  <input type="checkbox" id="t_key" name="t_key" checked>
+{% else %}
+  <input type="checkbox" id="t_key" name="t_key">
+{% endif %}
+  <label for="t_key">t_key</label>
+
+{% if t_val %}
+  <input type="checkbox" id="t_val" name="t_val" checked>
+{% else %}
+  <input type="checkbox" id="t_val" name="t_val">
+{% endif %}
+  <label for="t_val">t_val</label>
+
+{% if m_key %}
+  <input type="checkbox" id="m_key" name="m_key" checked>
+{% else %}
+  <input type="checkbox" id="m_key" name="m_key">
+{% endif %}
+  <label for="m_key">m_key</label>
+
+{% if m_val %}
+  <input type="checkbox" id="m_val" name="m_val" checked>
+{% else %}
+  <input type="checkbox" id="m_val" name="m_val">
+{% endif %}
+  <label for="m_val">m_val</label>
+
+{% if remedy %}
+  <input type="checkbox" id="remedy" name="remedy" checked>
+{% else %}
+  <input type="checkbox" id="remedy" name="remedy">
+{% endif %}
+  <label for="remedy">remedy</label>
+
+{% if state %}
+  <input type="checkbox" id="state" name="state" checked>
+{% else %}
+  <input type="checkbox" id="state" name="state">
+{% endif %}
+  <label for="state">state</label>
+
+{% if timex3 %}
+  <input type="checkbox" id="timex3" name="timex3" checked>
+{% else %}
+  <input type="checkbox" id="timex3" name="timex3">
+{% endif %}
+  <label for="timex3">timex3</label>
+
+{% if type_ %}
+  <input type="checkbox" id="type_" name="type_" checked>
+{% else %}
+  <input type="checkbox" id="type_" name="type_">
+{% endif %}
+  <label for="type_">type</label>
+
+{% if cc %}
+  <input type="checkbox" id="cc" name="cc" checked>
+{% else %}
+  <input type="checkbox" id="cc" name="cc">
+{% endif %}
+  <label for="cc">cc</label>
+
+  <input type="submit" value="条件を変えて再検索">
+</form>
+<hr>
+<p>上位3件の類似所見を表示します</p>
+{% for result, i, score in results %}
+<h3>No. {{ i }}</h3>
+<pre>score: {{ score }}</pre>
+<p class="doc">{{ result }}</p>
+<hr>
+{% endfor %}
+</body>
+</html>

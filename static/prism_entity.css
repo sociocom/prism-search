@@ -1,0 +1,507 @@
+span {
+  font-weight: 600;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+.disease-positive {
+  background: #FF968C;
+}
+.disease-positive::before {
+  content: "D(+)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.disease-negative {
+  background: #FF968C;
+}
+.disease-negative::before {
+  content: "D(-)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.disease-general {
+  background: #FF968C;
+}
+.disease-general::before {
+  content: "D(*)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.disease-suspicious {
+  background: #FF968C;
+}
+.disease-suspicous::before {
+  content: "D(?)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.anatomical {
+  background: #FF9300;
+}
+.anatomical::before {
+  content: "A";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.feature {
+  background: #00A1FE;
+  color: #FFFFFF;
+}
+.feature::before {
+  content: "F";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.change {
+  background: #1DB004;
+  color: #FFFFFF;
+}
+.change::before {
+  content: "C";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-DATE {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-DATE::before {
+  content: "時(DATE)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-TIME {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-TIME::before {
+  content: "時(TIME)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-DURATION {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-DURATION::before {
+  content: "時(DUR)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-SET {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-SET::before {
+  content: "時(SET)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-AGE {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-AGE::before {
+  content: "時(AGE)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-CC {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-CC::before {
+  content: "時(CC)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3-MISC {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3-MISC::before {
+  content: "時(MISC)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testtest-executed {
+  background: #FFFD66;
+}
+.testtest-executed::before {
+  content: "Tt(+)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testtest-negated {
+  background: #FFFD66;
+}
+.testtest-negated::before {
+  content: "Tt(-)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testtest-scheduled {
+  background: #FFFD66;
+}
+.testtest-scheduled::before {
+  content: "Tt(予)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testtest-other {
+  background: #FFFD66;
+}
+.testtest-other::before {
+  content: "Tt(他)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testkey {
+  background: #FFFD66;
+}
+.testkey::before {
+  content: "Tk";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testkey-executed {
+  background: #FFFD66;
+}
+.testkey-executed::before {
+  content: "Tk(+)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testkey-negated {
+  background: #FFFD66;
+}
+.testkey-negated::before {
+  content: "Tk(-)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testkey-scheduled {
+  background: #FFFD66;
+}
+.testkey-scheduled::before {
+  content: "Tk(予)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testkey-other {
+  background: #FFFD66;
+}
+.testkey-other::before {
+  content: "Tk(他)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testval {
+  background: #FFFD66;
+}
+.testval::before {
+  content: "Tv";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.medkey {
+  background: #FF8DC5;
+}
+.medkey::before {
+  content: "Mk";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.medkey-executed {
+  background: #FF8DC5;
+}
+.medkey-executed::before {
+  content: "Mk(+)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.medkey-negated {
+  background: #FF8DC5;
+}
+.medkey-negated::before {
+  content: "Mk(-)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.medkey-scheduled {
+  background: #FF8DC5;
+}
+.medkey-scheduled::before {
+  content: "Mk(予)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.medkey-other {
+  background: #FF8DC5;
+}
+.medkey-other::before {
+  content: "Mk(他)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.medval {
+  background: #FF8DC5;
+}
+.medval::before {
+  content: "Mv";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.cc {
+  background: #BC8F8F;
+}
+.cc::before {
+  content: "CC";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.cc-executed {
+  background: #BC8F8F;
+}
+.cc-executed::before {
+  content: "CC(+)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.cc-negated {
+  background: #BC8F8F;
+}
+.cc-negated::before {
+  content: "CC(-)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.cc-scheduled {
+  background: #BC8F8F;
+}
+.cc-scheduled::before {
+  content: "CC(予)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.cc-other {
+  background: #BC8F8F;
+}
+.cc-other::before {
+  content: "CC(他)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+
+.remedy {
+  background: #FF8DC5;
+}
+.remedy::before {
+  content: "R";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.remedy-executed {
+  background: #FF8DC5;
+}
+.remedy-executed::before {
+  content: "R(+)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.remedy-negated {
+  background: #FF8DC5;
+}
+.remedy-negated::before {
+  content: "R(-)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.remedy-scheduled {
+  background: #FF8DC5;
+}
+.remedy-scheduled::before {
+  content: "R(予)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.remedy-other {
+  background: #FF8DC5;
+}
+.remedy-other::before {
+  content: "R(他)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.pending {
+}
+.pending::before {
+  content: "P";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
