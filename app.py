@@ -38,6 +38,7 @@ TAGNAMES = {
     "p": "pending",
 }
 
+# NOTE: change here for a different search source
 with open("ncc1079.json", "r") as fj:
     DATA = json.load(fj)
 
@@ -198,8 +199,10 @@ def filter_ne(
         yield filtered
 
 
-def search(analysed_text, **kwargs):
-    vec = CountVectorizer()
+def search(analysed_text, binary=False, ngram=False, **kwargs):
+    vec = CountVectorizer(
+        binary=True if binary else False, ngram_range=(1, 3) if ngram else (1, 1)
+    )
     bones = [d["bones"] for d in DATA]
     boneslst = [analysed_text] + bones
     bonesiter = filter_ne(boneslst, **kwargs)
@@ -221,8 +224,10 @@ def index():
     return send_from_directory("static", "index.html")
 
 
-@app.route("/result", methods=["POST"])
+@app.route("/result", methods=["GET", "POST"])
 def result():
+    if request.method == "GET":
+        return redirect("/")
     input_rr = request.form.get("radiorep")
     if input_rr:
         analysed_xml = analyse(request.form["radiorep"].strip())
@@ -234,6 +239,8 @@ def result():
             "result.html",
             radiorep_ner=radiorep_ner,
             results=results,
+            binary=False,
+            ngram=False,
             disease=True,
             certainty=True,
             anatomical=True,
@@ -252,9 +259,11 @@ def result():
         )
     else:
         if "html" in session and "bone" in session:
-            print(request.form)
+            # print(request.form)
             results = search(
                 session["bone"],
+                binary=request.form.get("binary"),
+                ngram=request.form.get("ngram"),
                 disease=request.form.get("disease"),
                 certainty=request.form.get("certainty"),
                 anatomical=request.form.get("anatomical"),
@@ -275,6 +284,8 @@ def result():
                 "result.html",
                 radiorep_ner=session["html"],
                 results=results,
+                binary=request.form.get("binary"),
+                ngram=request.form.get("ngram"),
                 disease=request.form.get("disease"),
                 certainty=request.form.get("certainty"),
                 anatomical=request.form.get("anatomical"),
