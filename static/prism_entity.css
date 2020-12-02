@@ -4,6 +4,18 @@ span {
   margin-right: 0.2em;
 }
 
+.disease {
+  background: #FF968C;
+}
+.disease::before {
+  content: "D";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
 .disease-positive {
   background: #FF968C;
 }
@@ -83,6 +95,19 @@ span {
 }
 .change::before {
   content: "C";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.TIMEX3 {
+  background: #B0047B;
+  color: #FFFFFF;
+}
+.TIMEX3::before {
+  content: "時";
   font-size: small;
   margin-left: 0.2em;
   margin-right: 0.2em;
@@ -174,6 +199,18 @@ span {
 }
 .TIMEX3-MISC::before {
   content: "時(MISC)";
+  font-size: small;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  border-radius: 5px;
+  border: 0.1em solid;
+}
+
+.testtest {
+  background: #FFFD66;
+}
+.testtest::before {
+  content: "Tt";
   font-size: small;
   margin-left: 0.2em;
   margin-right: 0.2em;
@@ -504,4 +541,3 @@ span {
   border-radius: 5px;
   border: 0.1em solid;
 }
-
