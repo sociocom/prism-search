@@ -2,9 +2,7 @@ from app import xml2html, xml2bone
 import json
 
 if __name__ == "__main__":
-    with open(
-        "/Users/s-yada/Datasets/NAIST-SocioCom/PRISM/2019Q3_json/ncc_20191219.json"
-    ) as fin:
+    with open("path/to/2019Q3_json/ncc_20191219.json") as fin:
         data = json.load(fin)
 
     htmls = []
