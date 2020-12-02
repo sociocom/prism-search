@@ -13,6 +13,11 @@ def main(docs):
 
     Args:
         docs (list[str]): a list of documents
+    Return:
+        None
+    Side effect:
+        Write a file named "search_source.json".
+        This JSON is a list of document objects, each of which contains an html-formated clinical text (as string) and a bag of named entities (as space-separated string).
     """
     htmls = []
     bones = []
