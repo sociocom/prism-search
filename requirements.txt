@@ -1,0 +1,4 @@
+scikit-learn
+mojimoji
+Flask
+git+https://github.com/sociocom/MedNER-J.git

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "prism-search"
-version = "0.1.0"
-description = ""
+version = "0.5.0"
+description = "Web-based search engine to show similar clinical documents to a user-input clinical snippet"
 authors = ["Shuntaro Yada <contact@shuntaroy.com>"]
 
 [tool.poetry.dependencies]
