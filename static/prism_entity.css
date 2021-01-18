@@ -1,543 +1,575 @@
 span {
   font-weight: 600;
+  white-space: nowrap;
   margin-left: 0.2em;
   margin-right: 0.2em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  border-radius: 5px;
 }
 
 .disease {
-  background: #FF968C;
+  background: #FF1B1C;
+  color: #FFFFFF;
 }
 .disease::before {
   content: "D";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .disease-positive {
-  background: #FF968C;
+  background: #FF1B1C;
+  color: #FFFFFF;
 }
 .disease-positive::before {
   content: "D(+)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .disease-negative {
-  background: #FF968C;
+  background: #FF1B1C;
+  color: #FFFFFF;
 }
 .disease-negative::before {
   content: "D(-)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .disease-general {
-  background: #FF968C;
+  background: #FF1B1C;
+  color: #FFFFFF;
 }
 .disease-general::before {
   content: "D(*)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .disease-suspicious {
-  background: #FF968C;
+  background: #FF1B1C;
+  color: #FFFFFF;
 }
 .disease-suspicous::before {
   content: "D(?)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .anatomical {
-  background: #FF9300;
+  background: #FF7F11;
 }
 .anatomical::before {
   content: "A";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .feature {
-  background: #00A1FE;
+  background: #247BA0;
   color: #FFFFFF;
 }
 .feature::before {
   content: "F";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .change {
-  background: #1DB004;
+  background: #008148;
   color: #FFFFFF;
 }
 .change::before {
   content: "C";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
-}
-
-.TIMEX3 {
-  background: #B0047B;
-  color: #FFFFFF;
-}
-.TIMEX3::before {
-  content: "時";
-  font-size: small;
-  margin-left: 0.2em;
-  margin-right: 0.2em;
-  border-radius: 5px;
-  border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-DATE {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-DATE::before {
   content: "時(DATE)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-TIME {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-TIME::before {
   content: "時(TIME)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-DURATION {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-DURATION::before {
   content: "時(DUR)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-SET {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-SET::before {
   content: "時(SET)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-AGE {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-AGE::before {
   content: "時(AGE)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-CC {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-CC::before {
   content: "時(CC)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .TIMEX3-MISC {
-  background: #B0047B;
+  background: #A14A86;
   color: #FFFFFF;
 }
 .TIMEX3-MISC::before {
   content: "時(MISC)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
-}
-
-.testtest {
-  background: #FFFD66;
-}
-.testtest::before {
-  content: "Tt";
-  font-size: small;
-  margin-left: 0.2em;
-  margin-right: 0.2em;
-  border-radius: 5px;
-  border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testtest-executed {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testtest-executed::before {
   content: "Tt(+)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testtest-negated {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testtest-negated::before {
   content: "Tt(-)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testtest-scheduled {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testtest-scheduled::before {
   content: "Tt(予)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testtest-other {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testtest-other::before {
   content: "Tt(他)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testkey {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testkey::before {
   content: "Tk";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testkey-executed {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testkey-executed::before {
   content: "Tk(+)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testkey-negated {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testkey-negated::before {
   content: "Tk(-)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testkey-scheduled {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testkey-scheduled::before {
   content: "Tk(予)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testkey-other {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testkey-other::before {
   content: "Tk(他)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .testval {
-  background: #FFFD66;
+  background: #FFFD82;
 }
 .testval::before {
   content: "Tv";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .medkey {
-  background: #FF8DC5;
+  background: #F786AA;
 }
 .medkey::before {
   content: "Mk";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .medkey-executed {
-  background: #FF8DC5;
+  background: #F786AA;
 }
 .medkey-executed::before {
   content: "Mk(+)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .medkey-negated {
-  background: #FF8DC5;
+  background: #F786AA;
 }
 .medkey-negated::before {
   content: "Mk(-)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .medkey-scheduled {
-  background: #FF8DC5;
+  background: #F786AA;
 }
 .medkey-scheduled::before {
   content: "Mk(予)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .medkey-other {
-  background: #FF8DC5;
+  background: #F786AA;
 }
 .medkey-other::before {
   content: "Mk(他)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .medval {
-  background: #FF8DC5;
+  background: #F786AA;
 }
 .medval::before {
   content: "Mv";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .cc {
-  background: #BC8F8F;
+  background: #562C2C;
+  color: #FFFFFF;
 }
 .cc::before {
   content: "CC";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .cc-executed {
-  background: #BC8F8F;
+  background: #562C2C;
+  color: #FFFFFF;
 }
 .cc-executed::before {
   content: "CC(+)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .cc-negated {
-  background: #BC8F8F;
+  background: #562C2C;
+  color: #FFFFFF;
 }
 .cc-negated::before {
   content: "CC(-)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .cc-scheduled {
-  background: #BC8F8F;
+  background: #562C2C;
+  color: #FFFFFF;
 }
 .cc-scheduled::before {
   content: "CC(予)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .cc-other {
-  background: #BC8F8F;
+  background: #562C2C;
+  color: #FFFFFF;
 }
 .cc-other::before {
   content: "CC(他)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 
 .remedy {
-  background: #FF8DC5;
+  background: #B8B8D1;
 }
 .remedy::before {
   content: "R";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .remedy-executed {
-  background: #FF8DC5;
+  background: #B8B8D1;
 }
 .remedy-executed::before {
   content: "R(+)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .remedy-negated {
-  background: #FF8DC5;
+  background: #B8B8D1;
 }
 .remedy-negated::before {
   content: "R(-)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .remedy-scheduled {
-  background: #FF8DC5;
+  background: #B8B8D1;
 }
 .remedy-scheduled::before {
   content: "R(予)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .remedy-other {
-  background: #FF8DC5;
+  background: #B8B8D1;
 }
 .remedy-other::before {
   content: "R(他)";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
 
 .pending {
 }
 .pending::before {
   content: "P";
-  font-size: small;
-  margin-left: 0.2em;
+  font-size: x-small;
   margin-right: 0.2em;
-  border-radius: 5px;
+  padding: 0.1em;
+  border-radius: 3px;
   border: 0.1em solid;
+  vertical-align: 15%;
 }
+

@@ -24,6 +24,7 @@ Please adapt the code for the data format of your document data.
 The script, `prepro.py`, is another example for PRISM's Q3 data.
 
 After these setups completed, you should be able to run the server with `python app.py` in the Flask's development mode.
+Be aware that, by default, the app uses the PRISM Q3 data, which requires you to modify the `DATA` source in `app.py` for your preprocessed data.
 
 The procedure to deploy this app to a production environment depends on the web-server's setting.
 Please consult with the administrators.
