@@ -1,23 +1,14 @@
 import json
-import xml.etree.ElementTree as ET
 import re
+import xml.etree.ElementTree as ET
 
-from flask import (
-    Flask,
-    send_from_directory,
-    render_template,
-    request,
-    redirect,
-    escape,
-    Markup,
-    session,
-)
+import mojimoji
 import numpy as np
+from flask import (Flask, Markup, escape, redirect, render_template, request,
+                   send_from_directory, session)
+from medner_j import Ner
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import mojimoji
-
-from medner_j import Ner
 
 model = Ner.from_pretrained(model_name="radiology", normalizer="dict")
 
@@ -126,7 +117,7 @@ def mednerj2xml(analysed_text):
             entity.tag = "t-test"
             entity.attrib["state"] = "other"
         elif entity.tag == "ccother":
-            entity.tag = "CC"
+            entity.tag = "cc"
             entity.attrib["state"] = "other"
 
     return root
