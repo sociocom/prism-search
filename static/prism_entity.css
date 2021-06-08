@@ -68,7 +68,7 @@ span {
   background: #FF1B1C;
   color: #FFFFFF;
 }
-.disease-suspicous::before {
+.disease-suspicious::before {
   content: "D(?)";
   font-size: x-small;
   margin-right: 0.2em;
@@ -347,6 +347,59 @@ span {
   vertical-align: 15%;
 }
 
+
+.testval-executed {
+  background: #F786AA;
+}
+.testval-executed::before {
+  content: "Tv(+)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.testval-negated {
+  background: #F786AA;
+}
+.testval-negated::before {
+  content: "Tv(-)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.testval-scheduled {
+  background: #F786AA;
+}
+.testval-scheduled::before {
+  content: "Tv(予)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.testval-other {
+  background: #F786AA;
+}
+.testval-other::before {
+  content: "Tv(他)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
 .medkey {
   background: #F786AA;
 }
@@ -417,6 +470,58 @@ span {
 }
 .medval::before {
   content: "Mv";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.medval-executed {
+  background: #F786AA;
+}
+.medval-executed::before {
+  content: "Mv(+)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.medval-negated {
+  background: #F786AA;
+}
+.medval-negated::before {
+  content: "Mv(-)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.medval-scheduled {
+  background: #F786AA;
+}
+.medval-scheduled::before {
+  content: "Mv(予)";
+  font-size: x-small;
+  margin-right: 0.2em;
+  padding: 0.1em;
+  border-radius: 3px;
+  border: 0.1em solid;
+  vertical-align: 15%;
+}
+
+.medval-other {
+  background: #F786AA;
+}
+.medval-other::before {
+  content: "Mv(他)";
   font-size: x-small;
   margin-right: 0.2em;
   padding: 0.1em;
