@@ -13,10 +13,22 @@
   類似読影所見提示システム
 </h1>
 <p>類似所見を検索したい読影所見を入力してください</p>
+<button onClick="insert_eg()">読影所見の例を挿入</button>
 <form action="/result" method="post">
   <textarea type="text" id="radiorep" name="radiorep" rows="20"></textarea>
   <input type="submit" value="検索">
 </form>
 <p>Powered by <a href="https://sociocom.naist.jp">Social Computing Lab.</a> at <a href="http://www.naist.jp">NAIST</a></p>
+  <script>
+    var text_area = document.getElementById("radiorep")
+
+  function insert_eg() {
+    text_area.value = `左上葉に径18mm 大のSSN を認めます。AAH やAIS の可能性があります。
+右下葉にもGGN を散見します。炎症性変化かもしれませんが、フォローにて変化をご確認ください。
+左下葉に線状索状影を認め陳旧性炎症性変化が疑われます。
+縦隔や肺門に有意なリンパ節腫大は指摘できません。
+胸水はありません。`
+  }
+  </script>
 </body>
 </html>
