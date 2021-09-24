@@ -19,8 +19,8 @@
 </h1>
 <h2>解析結果</h2>
 <p class="doc">{{ radiorep_ner }}</p>
-<h2>類似所見{% if prism %}（国がんデータ）{% else %}（オープンデータ）{% endif %}</h2>
-<form action="/result{% if prism %}-prism{% endif %}" method="post">
+<h2>類似所見（国がんデータ）</h2>
+<form action="/result-prism" method="post">
   <p>類似度計算オプション<br>
 
 {% if binary %}

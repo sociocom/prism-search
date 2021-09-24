@@ -4,9 +4,18 @@ import xml.etree.ElementTree as ET
 
 import mojimoji
 import numpy as np
-from flask import (Flask, Markup, escape, redirect, render_template, request,
-                   send_from_directory, session)
+from flask import (
+    Flask,
+    Markup,
+    escape,
+    redirect,
+    render_template,
+    request,
+    send_from_directory,
+    session,
+)
 from medner_j import Ner
+from textformatting import ssplit
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -21,7 +30,7 @@ TAGNAMES = {
     "TIMEX3": "TIMEX3",
     "t-test": "testtest",
     "t-key": "testkey",
-    "t-val": "testval",
+    "tval": "testval",
     "m-key": "medkey",
     "m-val": "medval",
     "cc": "cc",
@@ -32,6 +41,8 @@ TAGNAMES = {
 # NOTE: change here for a different search source
 with open("ncc1079.json", "r") as fj:
     DATA = json.load(fj)
+with open("medtxt-rr-open.json", "r") as fj:
+    DATA_ = json.load(fj)
 
 app = Flask(__name__)
 app.secret_key = "Z2wwGDBrKArxXJVKZCfMQzZAqmweYEfXTg"
@@ -56,8 +67,14 @@ def xml2html(doc):
     for entity in root.iter():
         if entity.tag == "root":
             continue
+        if entity.tag == "br":
+            continue
         e_xml2html(entity)
-    return ET.tostring(root, encoding="unicode", method="html")
+    return (
+        ET.tostring(root, encoding="unicode", method="html")
+        .replace("<root>", "")
+        .replace("</root>", "")
+    )
 
 
 def xml2bone(doc):
@@ -76,11 +93,15 @@ def xml2bone(doc):
 
 
 def mednerj2xml(analysed_text):
-    xmldoc = f"<root>{analysed_text}</root>"
+    at_br = analysed_text.replace("\n", "<br />")
+    xmldoc = f"<root>{at_br}</root>"
     root = ET.fromstring(xmldoc)
     for entity in root.iter():
         if entity.tag == "root":
             continue
+        if entity.tag == "br":
+            continue
+
         if "value" in entity.attrib:
             del entity.attrib["value"]
 
@@ -125,8 +146,9 @@ def mednerj2xml(analysed_text):
 
 def analyse(text):
     text = mojimoji.han_to_zen(text)
-    analysed_text = model.predict([text])
-    xml = mednerj2xml(analysed_text[0])
+    sentences = ssplit(text)
+    analysed_text = model.predict(sentences)
+    xml = mednerj2xml("\n".join(analysed_text))
     return xml
 
 
@@ -190,11 +212,14 @@ def filter_ne(
         yield filtered
 
 
-def search(analysed_text, binary=False, ngram=False, **kwargs):
+def search(analysed_text, binary=False, ngram=False, prism=False, **kwargs):
     vec = CountVectorizer(
         binary=True if binary else False, ngram_range=(1, 3) if ngram else (1, 1)
     )
-    bones = [d["bones"] for d in DATA]
+    if prism:
+        bones = [d["bones"] for d in DATA]
+    else:
+        bones = [d["bones"] for d in DATA_]
     boneslst = [analysed_text] + bones
     bonesiter = filter_ne(boneslst, **kwargs)
     X = vec.fit_transform(bonesiter)
@@ -202,7 +227,10 @@ def search(analysed_text, binary=False, ngram=False, **kwargs):
     row = mat[0]
     ind = np.argpartition(row, -3)[-3:]  # top 3 index (rand)
     inds = ind[np.argsort(row[ind])]  # sort by values (asc)
-    return [(Markup(DATA[i]["html"]), i, row[i]) for i in reversed(inds)]
+    if prism:
+        return [(Markup(DATA[i]["html"]), i, row[i]) for i in reversed(inds)]
+    else:
+        return [(Markup(DATA_[i]["html"]), i, row[i]) for i in reversed(inds)]
 
 
 # form input
@@ -215,8 +243,7 @@ def index():
     return send_from_directory("static", "index.html")
 
 
-@app.route("/result", methods=["GET", "POST"])
-def result():
+def result_base(prism=False):
     if request.method == "GET":
         return redirect("/")
     input_rr = request.form.get("radiorep")
@@ -225,9 +252,10 @@ def result():
         session["bone"] = xml2bone(analysed_xml)
         radiorep_ner = Markup(xml2html(analysed_xml))
         session["html"] = radiorep_ner
-        results = search(session["bone"])
+        results = search(session["bone"], prism=prism)
         return render_template(
             "result.html",
+            prism=prism,
             radiorep_ner=radiorep_ner,
             results=results,
             binary=False,
@@ -251,8 +279,7 @@ def result():
     else:
         if "html" in session and "bone" in session:
             # print(request.form)
-            results = search(
-                session["bone"],
+            search_config = dict(
                 binary=request.form.get("binary"),
                 ngram=request.form.get("ngram"),
                 disease=request.form.get("disease"),
@@ -271,30 +298,26 @@ def result():
                 type_=request.form.get("type_"),
                 cc=request.form.get("cc"),
             )
+            results = search(session["bone"], prism=prism, **search_config)
             return render_template(
                 "result.html",
+                prism=prism,
                 radiorep_ner=session["html"],
                 results=results,
-                binary=request.form.get("binary"),
-                ngram=request.form.get("ngram"),
-                disease=request.form.get("disease"),
-                certainty=request.form.get("certainty"),
-                anatomical=request.form.get("anatomical"),
-                feature=request.form.get("feature"),
-                change=request.form.get("change"),
-                t_test=request.form.get("t_test"),
-                t_key=request.form.get("t_key"),
-                t_val=request.form.get("t_val"),
-                m_key=request.form.get("m_key"),
-                m_val=request.form.get("m_val"),
-                remedy=request.form.get("remedy"),
-                state=request.form.get("state"),
-                timex3=request.form.get("timex3"),
-                type_=request.form.get("type_"),
-                cc=request.form.get("cc"),
+                **search_config,
             )
         else:
             return redirect("/")
+
+
+@app.route("/result", methods=["GET", "POST"])
+def result():
+    return result_base(prism=False)
+
+
+@app.route("/result-prism", methods=["GET", "POST"])
+def result_prism():
+    return result_base(prism=True)
 
 
 if __name__ == "__main__":

@@ -12,12 +12,16 @@
   <a href="https://sociocom.naist.jp"><img src="/static/sociocom.png" alt="Social Computing Lab. Logo" width="30px"></a>
   類似読影所見提示システム
 </h1>
-<p>類似所見を検索したい読影所見を入力してください</p>
-<button onClick="insert_eg()">読影所見の例を挿入</button>
+<p>
+  類似所見を検索したい読影所見を入力してください．
+  <button onClick="insert_eg()">読影所見の例を挿入</button>
+</p>
 <form action="/result" method="post">
   <textarea type="text" id="radiorep" name="radiorep" rows="20"></textarea>
-  <input type="submit" value="検索">
+  <input type="submit" value="オープンデータで検索">
+  <input type="submit" value="国がんデータで検索（要認証）" formaction="/result-prism">
 </form>
+<p>オープンデータはMedTxt-RR-JA（45文書）から，国がんデータは1000文書から検索します．ただし国がんデータはPRISM共同研究者のみ閲覧可能で，パスワード認証が必要です．</p>
 <p>Powered by <a href="https://sociocom.naist.jp">Social Computing Lab.</a> at <a href="http://www.naist.jp">NAIST</a></p>
   <script>
     var text_area = document.getElementById("radiorep")
