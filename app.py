@@ -4,9 +4,18 @@ import xml.etree.ElementTree as ET
 
 import mojimoji
 import numpy as np
-from flask import (Flask, Markup, escape, redirect, render_template, request,
-                   send_from_directory, session)
+from flask import (
+    Flask,
+    Markup,
+    escape,
+    redirect,
+    render_template,
+    request,
+    send_from_directory,
+    session,
+)
 from medner_j import Ner
+from textformatting import ssplit
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -21,7 +30,7 @@ TAGNAMES = {
     "TIMEX3": "TIMEX3",
     "t-test": "testtest",
     "t-key": "testkey",
-    "t-val": "testval",
+    "tval": "testval",
     "m-key": "medkey",
     "m-val": "medval",
     "cc": "cc",
@@ -56,8 +65,14 @@ def xml2html(doc):
     for entity in root.iter():
         if entity.tag == "root":
             continue
+        if entity.tag == "br":
+            continue
         e_xml2html(entity)
-    return ET.tostring(root, encoding="unicode", method="html")
+    return (
+        ET.tostring(root, encoding="unicode", method="html")
+        .replace("<root>", "")
+        .replace("</root>", "")
+    )
 
 
 def xml2bone(doc):
@@ -76,11 +91,15 @@ def xml2bone(doc):
 
 
 def mednerj2xml(analysed_text):
-    xmldoc = f"<root>{analysed_text}</root>"
+    at_br = analysed_text.replace("\n", "<br />")
+    xmldoc = f"<root>{at_br}</root>"
     root = ET.fromstring(xmldoc)
     for entity in root.iter():
         if entity.tag == "root":
             continue
+        if entity.tag == "br":
+            continue
+
         if "value" in entity.attrib:
             del entity.attrib["value"]
 
@@ -125,8 +144,19 @@ def mednerj2xml(analysed_text):
 
 def analyse(text):
     text = mojimoji.han_to_zen(text)
-    analysed_text = model.predict([text])
-    xml = mednerj2xml(analysed_text[0])
+    sentences = ssplit(text)
+    sents = []
+    for sentence in sentences:
+        sentlen = len(sentence)
+        if sentlen > 100:
+            # slide a 100 char window to limit input text length
+            sents.extend(
+                [sentence[i * 100 : i * 100 + 100] for i in range(sentlen // 100 + 1)]
+            )
+        else:
+            sents.append(sentence)
+    analysed_text = model.predict(sents)
+    xml = mednerj2xml("\n".join(analysed_text))
     return xml
 
 
@@ -251,8 +281,7 @@ def result():
     else:
         if "html" in session and "bone" in session:
             # print(request.form)
-            results = search(
-                session["bone"],
+            search_config = dict(
                 binary=request.form.get("binary"),
                 ngram=request.form.get("ngram"),
                 disease=request.form.get("disease"),
@@ -271,27 +300,12 @@ def result():
                 type_=request.form.get("type_"),
                 cc=request.form.get("cc"),
             )
+            results = search(session["bone"], **search_config)
             return render_template(
                 "result.html",
                 radiorep_ner=session["html"],
                 results=results,
-                binary=request.form.get("binary"),
-                ngram=request.form.get("ngram"),
-                disease=request.form.get("disease"),
-                certainty=request.form.get("certainty"),
-                anatomical=request.form.get("anatomical"),
-                feature=request.form.get("feature"),
-                change=request.form.get("change"),
-                t_test=request.form.get("t_test"),
-                t_key=request.form.get("t_key"),
-                t_val=request.form.get("t_val"),
-                m_key=request.form.get("m_key"),
-                m_val=request.form.get("m_val"),
-                remedy=request.form.get("remedy"),
-                state=request.form.get("state"),
-                timex3=request.form.get("timex3"),
-                type_=request.form.get("type_"),
-                cc=request.form.get("cc"),
+                **search_config,
             )
         else:
             return redirect("/")

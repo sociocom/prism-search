@@ -10,9 +10,11 @@ scikit-learn = "^0.23.2"
 Flask = "^1.1.2"
 mojimoji = "^0.0.11"
 medner-j = { git = "https://github.com/sociocom/MedNER-J.git"}
+textformatting = { git = "https://github.com/ku-nlp/python-textformatting.git" }
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.790"
+black = {version = "^21.9b0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0a5"]
